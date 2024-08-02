@@ -1,0 +1,22 @@
+[tool.poetry]
+name = "heartbeatmis"
+version = "0.0.1"
+description = "Heartbeat: Medical Information System"
+authors = ["lockiultra <lockiultra@gmail.com>"]
+license = "MIT"
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.11"
+fastapi = "^0.111.1"
+uvicorn = "^0.30.1"
+
+
+[tool.poetry.group.database.dependencies]
+sqlalchemy = "^2.0.31"
+alembic = "^1.13.2"
+aiosqlite = "^0.20.0"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
