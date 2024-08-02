@@ -25,7 +25,6 @@ class UserCreate(UserBase):
     pass
 
 class UserUpdate(UserBase):
-    id: int
     first_name: str | None = None
     second_name: str | None = None
     third_name: str | None = None
