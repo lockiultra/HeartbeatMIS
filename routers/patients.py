@@ -18,7 +18,7 @@ def get_patient_by_id(patient_id: int, db: Session = Depends(get_db)):
     return patient
 
 @patients_router.post('/', response_model=schemas.Patient)
-def test(patient: schemas.PatientCreate = Body(), db: Session = Depends(get_db)):
+def add_new_patient(patient: schemas.PatientCreate = Body(), db: Session = Depends(get_db)):
     new_patient = models.Patient()
     for key, value in patient.model_dump().items():
         setattr(new_patient, key, value)
