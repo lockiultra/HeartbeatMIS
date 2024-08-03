@@ -28,9 +28,9 @@ def add_new_patient(patient: schemas.PatientCreate = Body(), db: Session = Depen
 
 @patients_router.put('/{patient_id}', response_model=schemas.Patient)
 def update_patient(patient_id: int, patient: schemas.PatientUpdate = Body(), db: Session = Depends(get_db)):
-    update_patient = db.query(models.Patient).filter(models.Patient.id==patient_id).first()
+    patient_to_update = db.query(models.Patient).filter(models.Patient.id==patient_id).first()
     for key, value in patient.model_dump().items():
-        setattr(update_patient, key, value)
+        setattr(patient_to_update, key, value)
     db.commit()
-    db.refresh(update_patient)
-    return update_patient
+    db.refresh(patient_to_update)
+    return patient_to_update
