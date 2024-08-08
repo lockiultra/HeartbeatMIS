@@ -6,12 +6,16 @@ import app.models as models
 
 
 class Appoinment(models.Base):
-    __tablename__ = 'appointments'
+    __tablename__ = "appointments"
 
     id: Mapped[int] = mapped_column(primary_key=True)
-    doctor_id: Mapped[int] = mapped_column(ForeignKey('doctors.id'))
-    patient_id: Mapped[int] = mapped_column(ForeignKey('patients.id'))
+    doctor_id: Mapped[int] = mapped_column(ForeignKey("doctors.id"))
+    patient_id: Mapped[int] = mapped_column(ForeignKey("patients.id"))
     datetime: datetime
 
-    doctor_owner: Mapped[models.Doctor] = relationship(models.Doctor, back_populates=models.Doctor.appointments)
-    patient_owner: Mapped[models.Patient] = relationship(models.Patient, back_populates=models.Patient.appointments)
+    doctor_owner: Mapped[models.Doctor] = relationship(
+        models.Doctor, back_populates=models.Doctor.appointments
+    )
+    patient_owner: Mapped[models.Patient] = relationship(
+        models.Patient, back_populates=models.Patient.appointments
+    )

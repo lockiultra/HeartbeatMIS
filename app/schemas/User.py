@@ -11,18 +11,20 @@ class UserBase(BaseModel):
     phone_number: str
     email: EmailStr
 
-    @field_validator('phone_number')
+    @field_validator("phone_number")
     @classmethod
     def __validate_phone_number(cls, value: str) -> str:
         return validate_phone_number(value)
-    
+
     # @field_validator('birthday')
     # @classmethod
     # def __validate_birthday(cls, value: str) -> str:
     #     return validate_birthday(value)
-    
+
+
 class UserCreate(UserBase):
     pass
+
 
 class UserUpdate(UserBase):
     first_name: str | None = None
@@ -32,8 +34,9 @@ class UserUpdate(UserBase):
     phone_number: str | None = None
     email: EmailStr | None = None
 
+
 class User(UserBase):
     id: int
 
     class Config:
-        orm_mode = True 
+        orm_mode = True

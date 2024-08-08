@@ -4,8 +4,7 @@ from sqlalchemy.orm import Mapped
 
 
 class Patient(Base, User):
-    __tablename__ = 'patients'
+    __tablename__ = "patients"
 
     insurance: Mapped[str]
     passport: Mapped[str]
-

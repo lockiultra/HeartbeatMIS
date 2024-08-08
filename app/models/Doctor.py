@@ -4,7 +4,7 @@ from sqlalchemy.orm import Mapped
 
 
 class Doctor(Base, User):
-    __tablename__ = 'doctors'
+    __tablename__ = "doctors"
 
     expirience: Mapped[int]
     speciality: Mapped[str]
